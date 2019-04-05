@@ -1,0 +1,89 @@
+<div class="container">
+  <form class="m-5">
+    <div class="row">
+      <div class="form-group">
+        <input class="form-control" type="text" [(ngModel)]="lista.nome" name="nome" >
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="number" [(ngModel)]="lista.numero" name="numero" >
+      </div>
+      <div class="">
+        <button class="btn btn-info" type="button" name="button" (click)='adicionar()'>adicionar</button>
+      </div>
+    </div>
+  </form>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">NOME</th>
+        <th scope="col">NUMERO DO TELEFONE</th>
+        <th scope="col">EXCLUIR</th>
+        <th scope="col">ALTERAR</th>
+        <th scope="col">DETALHES</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let lista of listaTelefonica; let i = index">
+        <td>{{lista.nome}}</td>
+        <td>{{lista.numero}}</td>
+        <td>
+          <button class="btn btn-info" type="button" name="button" (click)="excluir(i)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-info" type="button" name="button" (click)="alterar(i)" >
+            <i class="fas fa-edit"></i>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-info" type="button" name="button" data-toggle="modal" data-target=".modal" (click)="pegarLista(i)" >
+                <i class="fas fa-address-book"></i>
+
+          </button>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+<div class="modal">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <div class="modal-headers">
+
+            <h5 class="modal-title">{{lista.nome}}</h5>
+            <h5>{{lista.numero}}  </h5>
+
+          </div>
+
+          <div class="modal-body">
+
+
+
+
+
+
+
+          </div>
+
+          <div class="modal-footer">
+
+            <button class="btn btn-secondary" type="button"  name="button" data-dismiss="modal">Fechar</button>
+
+          </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</div>
